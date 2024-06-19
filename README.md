@@ -1,8 +1,5 @@
-```txt
+wrangler dev ./src/index.tsx
+
 npm install
 npm run dev
-```
-
-```txt
 npm run deploy
-```

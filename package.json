@@ -11,10 +11,10 @@
     "hono": "^4.4.7"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240614.0",
+    "@cloudflare/workers-types": "^4.20240529.0",
     "@hono/vite-cloudflare-pages": "^0.4.1",
-    "@hono/vite-dev-server": "^0.12.2",
-    "vite": "^5.3.1",
+    "@hono/vite-dev-server": "^0.12.1",
+    "vite": "^5.2.12",
     "wrangler": "^3.61.0"
   }
 }
