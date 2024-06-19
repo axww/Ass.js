@@ -1,7 +1,12 @@
 import { Hono } from 'hono'
 import { renderer } from './renderer'
 
-const app = new Hono()
+const app = new Hono<{
+  Bindings: {
+    MY_KV: KVNamespace
+    DB: D1Database
+  }
+}>()
 
 app.use(renderer)
 
