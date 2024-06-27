@@ -1,5 +1,6 @@
 import { Hono } from 'hono'
 import { renderer } from './renderer'
+import { PrismaClient } from '@prisma/client'
 
 const app = new Hono<{
   Bindings: {
@@ -8,22 +9,7 @@ const app = new Hono<{
   }
 }>()
 
-// 在应用启动时调用创建表的函数
-app.on('fetch', '', async (c) => {
-  const tableCreationQuery = `
-  CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    email TEXT NOT NULL UNIQUE
-  );
-`
-  try {
-    await c.env.DB.prepare(tableCreationQuery).all();
-    console.log('Table created successfully.')
-  } catch (error) {
-    console.error('Error creating table:', error)
-  }
-})
+const prisma = new PrismaClient()
 
 app.use(renderer)
 
@@ -42,6 +28,11 @@ app.get("/user/:id", async (c) => {
     console.log(Object.keys(e))
     return c.json({ err: e.message }, 500);
   }
+});
+
+app.get('/test', async (c) => {
+  const users = await prisma.user.findMany();
+  return c.json(users);
 });
 
 export default app
