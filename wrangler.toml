@@ -13,9 +13,9 @@ pages_build_output_dir = "./dist"
 # bucket_name = "my-bucket"
 
 [[d1_databases]]
-binding = "DB"
-database_id = "db"
-database_name = "db"
+binding = "DB123"
+database_id = "db123"
+database_name = "db123"
 
 # [ai]
 # binding = "AI"
