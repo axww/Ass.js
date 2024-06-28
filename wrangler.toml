@@ -1,4 +1,4 @@
-name = "ass-js"
+name = "ass"
 pages_build_output_dir = "./dist"
 
 # [vars]
