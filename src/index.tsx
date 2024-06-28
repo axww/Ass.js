@@ -1,5 +1,6 @@
 import { Hono } from 'hono'
 import { renderer } from './renderer'
+import { PrismaD1 } from '@prisma/adapter-d1'
 import { PrismaClient } from '@prisma/client'
 
 const app = new Hono<{
@@ -8,8 +9,6 @@ const app = new Hono<{
     DB: D1Database
   }
 }>()
-
-const prisma = new PrismaClient()
 
 app.use(renderer)
 
@@ -31,6 +30,8 @@ app.get("/user/:id", async (c) => {
 });
 
 app.get('/test', async (c) => {
+  const adapter = new PrismaD1(c.env.DB)
+  const prisma = new PrismaClient({ adapter })
   const users = await prisma.user.findMany();
   return c.json(users);
 });

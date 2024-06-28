@@ -6,5 +6,7 @@ npm run build
 npm run deploy
 
 npx prisma generate
-npx prisma studio
 npx prisma migrate dev
+npx prisma studio
+
+npx wrangler d1 migrations apply db --local
