@@ -1,7 +1,5 @@
 import { Hono } from 'hono'
 import { renderer } from './renderer'
-import { PrismaD1 } from '@prisma/adapter-d1'
-import { PrismaClient } from '@prisma/client'
 
 const app = new Hono<{
   Bindings: {
@@ -27,13 +25,6 @@ app.get("/user/:id", async (c) => {
     console.log(Object.keys(e))
     return c.json({ err: e.message }, 500);
   }
-});
-
-app.get('/test', async (c) => {
-  const adapter = new PrismaD1(c.env.DB)
-  const prisma = new PrismaClient({ adapter })
-  const users = await prisma.user.findMany();
-  return c.json(users);
 });
 
 export default app
