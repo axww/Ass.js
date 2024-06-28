@@ -14,8 +14,8 @@ pages_build_output_dir = "./dist"
 
 [[d1_databases]]
 binding = "DB"
+database_id = "db"
 database_name = "db"
-database_id = "abc"
 
 # [ai]
 # binding = "AI"
