@@ -13,8 +13,8 @@ pages_build_output_dir = "./dist"
 # bucket_name = "my-bucket"
 
 [[d1_databases]]
-binding = "DB123"
-database_id = "db123"
+binding = "DB"
+database_id = "a5f5170b-e538-4d78-a93e-76dae128fd3b"
 database_name = "db123"
 migrations_dir = "./migrations"
 
