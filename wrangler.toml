@@ -14,8 +14,9 @@ pages_build_output_dir = "./dist"
 
 [[d1_databases]]
 binding = "DB123"
-database_name = "db123"
 database_id = "db123"
+database_name = "db123"
+migrations_dir = "./migrations"
 
 # [ai]
 # binding = "AI"
