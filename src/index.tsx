@@ -27,4 +27,9 @@ app.get("/user/:id", async (c) => {
   }
 });
 
+app.get("/:id{thread\\-([0-9]+)\\.htm$}", async (c) => {
+  const id = c.req.path; // 获取路径中的变量 ID
+  return c.text(`Thread ID is ${id}`);
+});
+
 export default app
